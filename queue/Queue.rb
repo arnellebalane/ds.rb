@@ -7,41 +7,19 @@ class Queue
   end
 
   def enqueue(elements = nil)
-    elements = Array(elements)
-    if !elements.empty?
-      elements.each do |element|
-        @elements.push(element)
-      end
-      return true
-    end
-    false
+      @elements += Array(elements)
   end
 
   def dequeue(count = 1)
-    elements = []
-    for i in 0...count
-      elements.push(@elements.shift)
-      break if @elements.empty?
-    end
-    normalized_element(elements)
+    normalized_element(@elements.slice!(0, count))
   end
 
   def first(count = 1)
-    elements = []
-    for i in 0...count
-      elements.push(@elements[i])
-      break if i == @elements.size - 1
-    end
-    normalized_element(elements)
+    normalized_element(@elements[0...count])
   end
 
   def last(count = 1)
-    elements = []
-    for i in 1..count
-      elements.push(@elements[@elements.size - i])
-      break if i == @elements.size
-    end
-    normalized_element(elements)
+    normalized_element(@elements.reverse[0...count])
   end
 
   def size

@@ -23,13 +23,13 @@ class QueueTest < Test::Unit::TestCase
   def test_enqueue
     queue = Queue.new
 
-    assert_equal false, queue.enqueue
+    queue.enqueue
     assert_equal [], queue.elements
 
-    assert_equal true, queue.enqueue(1)
+    queue.enqueue(1)
     assert_equal [1], queue.elements
 
-    assert_equal true, queue.enqueue([2, 3])
+    queue.enqueue([2, 3])
     assert_equal [1, 2, 3], queue.elements
   end
 
