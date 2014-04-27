@@ -45,7 +45,6 @@ class StackTest < Test::Unit::TestCase
     assert_equal 1, stack.pop(3)
     assert_equal [], stack.elements
 
-    stack = Stack.new
     assert_equal nil, stack.pop
     assert_equal [], stack.elements
   end

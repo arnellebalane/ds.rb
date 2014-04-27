@@ -30,7 +30,7 @@ class Queue
     elements = []
     for i in 0...count
       elements.push(@elements[i])
-      break if i == @elements.size
+      break if i == @elements.size - 1
     end
     normalized_element(elements)
   end
