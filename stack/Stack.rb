@@ -9,30 +9,21 @@ class Stack
   def push(elements = nil)
     elements = Array(elements)
     if !elements.empty?
-      elements.each do |element| 
-        @elements.push(element)
-      end
+      @elements += elements
       return true
     end
     false
   end
 
   def pop(count = 1)
-    elements = []
-    for i in 0...count
-      elements.push(@elements.pop)
-      break if @elements.empty?
-    end
-    normalize(elements)
+    reverse = @elements.reverse
+    elements = normalize reverse.slice!(0, count)
+    @elements = reverse.reverse
+    elements
   end
 
   def top(count = 1)
-    elements = []
-    for i in 1..count
-      elements.push(@elements[@elements.size - i])
-      break if i == @elements.size
-    end
-    normalize(elements)
+    normalize @elements.reverse[0...count]
   end
 
   def size
