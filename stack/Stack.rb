@@ -7,12 +7,7 @@ class Stack
   end
 
   def push(elements = nil)
-    elements = Array(elements)
-    if !elements.empty?
-      @elements += elements
-      return true
-    end
-    false
+    @elements += Array(elements)
   end
 
   def pop(count = 1)

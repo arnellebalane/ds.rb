@@ -23,13 +23,13 @@ class StackTest < Test::Unit::TestCase
   def test_push
     stack = Stack.new
 
-    assert_equal false, stack.push
+    stack.push
     assert_equal [], stack.elements
 
-    assert_equal true, stack.push(1)
+    stack.push(1)
     assert_equal [1], stack.elements
 
-    assert_equal true, stack.push([2, 3])
+    stack.push([2, 3])
     assert_equal [1, 2, 3], stack.elements
   end
 
