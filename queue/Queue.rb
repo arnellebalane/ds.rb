@@ -11,15 +11,15 @@ class Queue
   end
 
   def dequeue(count = 1)
-    normalized_element(@elements.slice!(0, count))
+    normalize @elements.slice!(0, count)
   end
 
   def first(count = 1)
-    normalized_element(@elements[0...count])
+    normalize @elements[0...count]
   end
 
   def last(count = 1)
-    normalized_element(@elements.reverse[0...count])
+    normalize @elements.reverse[0...count]
   end
 
   def size
@@ -32,7 +32,7 @@ class Queue
 
   private
 
-    def normalized_element(elements = nil)
+    def normalize(elements = nil)
       if elements.empty?
         return nil
       elsif elements.size == 1
