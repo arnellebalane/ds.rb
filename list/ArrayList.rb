@@ -6,16 +6,16 @@ class ArrayList
     @elements = Array(elements)
   end
 
-  def insert_first(elements = nil)
+  def insert_first(elements)
     @elements = Array(elements).reverse + @elements
   end
 
-  def insert_last(elements = nil)
+  def insert_last(elements)
     @elements += Array(elements)
   end
 
-  def insert_at(index = nil, element = nil)
-    if index and element and index >= 0 and index <= @elements.size
+  def insert_at(index, element)
+    if index >= 0 and index <= @elements.size
       @elements = @elements[0...index] + Array(element) + @elements[index..-1]
       return true
     end
@@ -33,8 +33,8 @@ class ArrayList
     elements
   end
 
-  def remove_at(index = nil)
-    if index and index >= 0 and index < @elements.size
+  def remove_at(index)
+    if index >= 0 and index < @elements.size
       return @elements.delete_at(index)
     end
     nil
@@ -48,8 +48,8 @@ class ArrayList
     normalize @elements.reverse[0...count]
   end
 
-  def get_at(index = nil)
-    if index and index >= 0 and index < @elements.size
+  def get_at(index)
+    if index >= 0 and index < @elements.size
       return @elements[index]
     end
     nil

@@ -23,7 +23,7 @@ class ArrayListTest < Test::Unit::TestCase
   def test_insert_first
     list = ArrayList.new
 
-    list.insert_first
+    assert_raise(ArgumentError) { list.insert_first }
     assert_equal [], list.elements
 
     list.insert_first(1)
@@ -36,7 +36,7 @@ class ArrayListTest < Test::Unit::TestCase
   def test_insert_last
     list = ArrayList.new
 
-    list.insert_last
+    assert_raise(ArgumentError) { list.insert_last }
     assert_equal [], list.elements
 
     list.insert_last(1)
@@ -49,10 +49,10 @@ class ArrayListTest < Test::Unit::TestCase
   def test_insert_at
     list = ArrayList.new
 
-    assert_equal false, list.insert_at
+    assert_raise(ArgumentError) { list.insert_at }
     assert_equal [], list.elements
 
-    assert_equal false, list.insert_at(0)
+    assert_raise(ArgumentError) { list.insert_at(0) }
     assert_equal [], list.elements
 
     assert_equal false, list.insert_at(-1, 1)
@@ -111,7 +111,7 @@ class ArrayListTest < Test::Unit::TestCase
   def test_remove_at
     list = ArrayList.new([1, 2, 3, 4, 5])
 
-    assert_equal nil, list.remove_at
+    assert_raise(ArgumentError) { list.remove_at }
     assert_equal [1, 2, 3, 4, 5], list.elements
 
     assert_equal nil, list.remove_at(-1)
@@ -167,7 +167,7 @@ class ArrayListTest < Test::Unit::TestCase
   def test_get_at
     list = ArrayList.new([1, 2, 3])
 
-    assert_equal nil, list.get_at
+    assert_raise(ArgumentError) { list.get_at }
     assert_equal [1, 2, 3], list.elements
 
     assert_equal nil, list.get_at(-1)
