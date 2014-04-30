@@ -6,7 +6,7 @@ class Queue
     @elements = Array(elements)
   end
 
-  def enqueue(elements = nil)
+  def enqueue(elements)
       @elements += Array(elements)
   end
 

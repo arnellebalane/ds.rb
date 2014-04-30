@@ -23,7 +23,7 @@ class QueueTest < Test::Unit::TestCase
   def test_enqueue
     queue = Queue.new
 
-    queue.enqueue
+    assert_raise(ArgumentError) { queue.enqueue }
     assert_equal [], queue.elements
 
     queue.enqueue(1)
