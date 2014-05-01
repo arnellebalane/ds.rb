@@ -26,10 +26,10 @@ class ArrayListTest < Test::Unit::TestCase
     assert_raise(ArgumentError) { list.insert_first }
     assert_equal [], list.elements
 
-    list.insert_first(1)
+    assert_nothing_raised(ArgumentError) { list.insert_first(1) }
     assert_equal [1], list.elements
 
-    list.insert_first([2, 3])
+    assert_nothing_raised(ArgumentError) { list.insert_first([2, 3]) }
     assert_equal [3, 2, 1], list.elements
   end
 
