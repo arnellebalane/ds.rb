@@ -6,7 +6,7 @@ class Stack
     @elements = Array(elements)
   end
 
-  def push(elements = nil)
+  def push(elements)
     @elements += Array(elements)
   end
 
