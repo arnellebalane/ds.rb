@@ -26,10 +26,10 @@ class QueueTest < Test::Unit::TestCase
     assert_raise(ArgumentError) { queue.enqueue }
     assert_equal [], queue.elements
 
-    queue.enqueue(1)
+    assert_nothing_raised(ArgumentError) { queue.enqueue(1) }
     assert_equal [1], queue.elements
 
-    queue.enqueue([2, 3])
+    assert_nothing_raised(ArgumentError) { queue.enqueue([2, 3]) }
     assert_equal [1, 2, 3], queue.elements
   end
 
