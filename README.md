@@ -14,3 +14,15 @@
   - __last(__ _$count_ __)__
   - __elements()__
   - __size()__
+- List
+  - __insertFirst(__ _$elements_ __)__
+  - __inserLast(__ _$elements_ __)__
+  - __insertAt(__ _$index, $element_ __)__
+  - __removeFirst(__ _$count_ __)__
+  - __removeLast(__ _$count_ __)__
+  - __removeAt(__ _$index_ __)__
+  - __getFirst(__ _$count_ __)__
+  - __getLast(__ _$count_ __)__
+  - __getAt(__ _$index_ __)__
+  - __elements()__
+  - __size()__
