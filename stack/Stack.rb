@@ -11,6 +11,7 @@ class Stack
   end
 
   def pop(count = 1)
+    throw "count must be an integer" unless count.is_a? Integer
     reverse = @elements.reverse
     elements = normalize reverse.slice!(0, count)
     @elements = reverse.reverse
@@ -18,6 +19,7 @@ class Stack
   end
 
   def top(count = 1)
+    throw "count must be an integer" unless count.is_a? Integer
     normalize @elements.reverse[0...count]
   end
 
