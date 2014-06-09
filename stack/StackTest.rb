@@ -36,6 +36,9 @@ class StackTest < Test::Unit::TestCase
   def test_pop
     stack = Stack.new([1, 2, 3, 4, 5])
 
+    assert_raise(ArgumentError) { stack.pop("a") }
+    assert_equal [1, 2, 3, 4, 5], stack.elements
+
     assert_equal 5, stack.pop
     assert_equal [1, 2, 3, 4], stack.elements
 
@@ -51,6 +54,9 @@ class StackTest < Test::Unit::TestCase
 
   def test_top
     stack = Stack.new([1, 2, 3])
+
+    assert_raise(ArgumentError) { stack.top("a") }
+    assert_equal [1, 2, 3], stack.elements
 
     assert_equal 3, stack.top
     assert_equal [1, 2, 3], stack.elements
