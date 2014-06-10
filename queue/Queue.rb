@@ -11,14 +11,17 @@ class Queue
   end
 
   def dequeue(count = 1)
+    throw "count must be an integer" unless count.is_a? Integer
     normalize @elements.slice!(0, count)
   end
 
   def first(count = 1)
+    throw "count must be an integer" unless count.is_a? Integer
     normalize @elements[0...count]
   end
 
   def last(count = 1)
+    throw "count must be an integer" unless count.is_a? Integer
     normalize @elements.reverse[0...count]
   end
 
