@@ -36,6 +36,9 @@ class QueueTest < Test::Unit::TestCase
   def test_dequeue
     queue = Queue.new([1, 2, 3, 4, 5])
 
+    assert_raise(ArgumentError) { queue.dequeue("a") }
+    assert_equal [1, 2, 3, 4, 5], queue.elements
+
     assert_equal 1, queue.dequeue
     assert_equal [2, 3, 4, 5], queue.elements
 
@@ -51,6 +54,9 @@ class QueueTest < Test::Unit::TestCase
 
   def test_first
     queue = Queue.new([1, 2, 3])
+
+    assert_raise(ArgumentError) { queue.first("a") }
+    assert_equal [1, 2, 3], queue.elements
 
     assert_equal 1, queue.first
     assert_equal [1, 2, 3], queue.elements
@@ -68,6 +74,9 @@ class QueueTest < Test::Unit::TestCase
 
   def test_last
     queue = Queue.new([1, 2, 3])
+
+    assert_raise(ArgumentError) { queue.last("a") }
+    assert_equal [1, 2, 3], queue.elements
 
     assert_equal 3, queue.last
     assert_equal [1, 2, 3], queue.elements
