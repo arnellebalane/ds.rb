@@ -23,10 +23,12 @@ class ArrayList
   end
 
   def remove_first(count = 1)
+    throw "count must be an integer" unless count.is_a? Integer
     normalize @elements.slice!(0, count)
   end
 
   def remove_last(count = 1)
+    throw "count must be an integer" unless count.is_a? Integer
     reverse = @elements.reverse
     elements = normalize reverse.slice!(0, count)
     @elements = reverse.reverse
@@ -41,10 +43,12 @@ class ArrayList
   end
 
   def get_first(count = 1)
+    throw "count must be an integer" unless count.is_a? Integer
     normalize @elements[0...count]
   end
 
   def get_last(count = 1)
+    throw "count must be an integer" unless count.is_a? Integer
     normalize @elements.reverse[0...count]
   end
 
