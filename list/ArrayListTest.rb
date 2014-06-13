@@ -77,6 +77,9 @@ class ArrayListTest < Test::Unit::TestCase
   def test_remove_first
     list = ArrayList.new([1, 2, 3, 4, 5])
 
+    assert_raise(ArgumentError) { list.remove_first("a") }
+    assert_equal [1, 2, 3, 4, 5], list.elements
+
     assert_equal 1, list.remove_first
     assert_equal [2, 3, 4, 5], list.elements
 
@@ -93,6 +96,9 @@ class ArrayListTest < Test::Unit::TestCase
 
   def test_remove_last
     list = ArrayList.new([1, 2, 3, 4, 5])
+
+    assert_raise(ArgumentError) { list.remove_last("a") }
+    assert_equal [1, 2, 3, 4, 5], list.elements
 
     assert_equal 5, list.remove_last
     assert_equal [1, 2, 3, 4], list.elements
@@ -133,6 +139,9 @@ class ArrayListTest < Test::Unit::TestCase
   def test_get_first
     list = ArrayList.new([1, 2, 3])
 
+    assert_raise(ArgumentError) { list.get_first("a") }
+    assert_equal [1, 2, 3], list.elements
+
     assert_equal 1, list.get_first
     assert_equal [1, 2, 3], list.elements
 
@@ -149,6 +158,9 @@ class ArrayListTest < Test::Unit::TestCase
 
   def test_get_last
     list = ArrayList.new([1, 2, 3])
+
+    assert_raise(ArgumentError) { list.get_last("a") }
+    assert_equal [1, 2, 3], list.elements
 
     assert_equal 3, list.get_last
     assert_equal [1, 2, 3], list.elements
